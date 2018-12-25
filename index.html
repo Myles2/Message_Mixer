@@ -14,6 +14,7 @@
         <br>
         <h2 class="amount">Text: <input type="text" id="input1" name="message"/></h2>
         <h2 class="amount">Letter Key: <input type="text" id="input2" name="message2"/></h2>
+        <h3>Switches the first word with the next word. "Case Sensitive"</h3>
         <h2 class="duo">Switch: <input type="text" id="input3" name="message3"/>With: <input type="text" id="input4" name="message4"/></h2>
         <button onclick="meg()">&nbsp;&nbsp;  Mix  &nbsp;&nbsp;</button>
         <button  type="button" value="Normal" onclick="document.getElementById('this').style.fontFamily = 'Times New Roman'">Normal</button>
@@ -26,8 +27,8 @@
         </div>
         <div id="secrets1">
           <h2>Count The Text</h2>
-          <h3>This counts all of the words and letter <div class="amounts" id=character1></div>.</h3>
-          <h3 class="amounts">All Text: <div class="amount" id=whole></div></h3>
+          <h3>This counts all of the characters and letter <div class="amounts" id=character1></div>'s.</h3>
+          <h3 class="amounts">All Characters: <div class="amount" id=whole></div></h3>
           <h3 class="amounts">Letters: <div class="amount" id=letter></div></h3>
         </div>
         <div id="secrets1">
@@ -41,26 +42,31 @@
           <h3 class="apps" id="app3"></h3>
         </div>
         <div id="secrets1">
-          <h2>Replaced First Occurred Text</h2>
-          <h3>This replaces the first occurrence of <div class="amounts" id=character4></div> with<div class="amounts" id=character3></div>.</h3>
+          <h2>Replace First Occurred Text</h2>
+          <h3>This replaces the first occurrence of<div class="amounts" id=character3></div>with<div class="amounts" id=character4></div>.</h3>
           <h3 class="apps" id="app4"></h3>
+        </div>
+        <div id="secrets1">
+          <h2>Replace All Occurred Text</h2>
+          <h3>This replaces all of the occurrences of<div class="amounts" id=character5></div>with<div class="amounts" id=character6></div>.</h3>
+          <h3 class="apps" id="app5"></h3>
         </div>
         <div id="secrets1">
           <h2>Encode Text</h2>
           <h3>This encodes the text in this format: 
           <br>
           [a : @] [s : $] [i : !] [o : 0] [h : #] [c : (]</h3>
-          <h3 class="apps" id="app5"></h3>
+          <h3 class="apps" id="app6"></h3>
         </div>
         <div id="secrets1">
           <h2>Palindrome Text</h2>
           <h3>This shows the original text, and if it's a palindrome</h3>
-          <h3 class="apps" id="app6"></h3>
+          <h3 class="apps" id="app7"></h3>
         </div>
         <div id="secrets1">
           <h2>Pig Latin Text</h2>
           <h3>This changes the text into Pig Latin with a character key of <div class="amounts" id=character2></div>.</h3>
-          <h3 class="apps" id="app7"></h3>
+          <h3 class="apps" id="app8"></h3>
         </div>
       </div>
     </div>
@@ -76,6 +82,8 @@
         document.getElementById('character2').innerHTML = pawn;
         document.getElementById('character3').innerHTML = thing1;
         document.getElementById('character4').innerHTML = thing2;
+        document.getElementById('character5').innerHTML = thing1;
+        document.getElementById('character6').innerHTML = thing2;
         let every = countCharacter(text, pawn);
         let every1 = every[0];
         let every2 = every[1];
@@ -84,9 +92,10 @@
         document.getElementById("app2").innerHTML = capitalizeFirstCharacterOfWords(text);
         document.getElementById("app3").innerHTML = reverseWord(text);
         document.getElementById("app4").innerHTML = replaceFirstOccurence(text, thing1, thing2);
-        document.getElementById("app5").innerHTML = encode(text);
-        document.getElementById("app6").innerHTML = palindrome(text);
-        document.getElementById("app7").innerHTML = pigLatin(text, pawn);
+        document.getElementById("app5").innerHTML = replaceAllOccurrences(text, thing1, thing2);
+        document.getElementById("app6").innerHTML = encode(text);
+        document.getElementById("app7").innerHTML = palindrome(text);
+        document.getElementById("app8").innerHTML = pigLatin(text, pawn);
       }
       function countCharacter(inputString, inputCharacter) {
         let count = 0;
